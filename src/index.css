@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  @apply bg-white font-body text-slate-700 antialiased;
+}
+
+/* Accessible focus ring across interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline-none ring-2 ring-brand-green ring-offset-2 ring-offset-white;
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-display text-sm font-semibold transition-all duration-200;
+  }
+
+  .btn-green {
+    @apply btn bg-brand-green text-white shadow-[0_8px_20px_-8px_rgba(0,166,81,0.7)] hover:bg-brand-green-dark hover:-translate-y-0.5;
+  }
+
+  .btn-blue {
+    @apply btn bg-brand-blue text-white hover:bg-brand-navy hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-white/70 bg-white/5 text-white hover:bg-white hover:text-brand-blue;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.18em] text-brand-green;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-extrabold leading-tight text-brand-navy sm:text-4xl;
+  }
+}
+
+/* Circuit-node signature motif used in dark sections */
+.circuit-bg {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.16) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(0, 166, 81, 0.18) 1px, transparent 0);
+  background-size: 28px 28px, 56px 56px;
+  background-position: 0 0, 14px 14px;
+}
+
+.font-600 { font-weight: 600; }
+.font-700 { font-weight: 700; }
+.font-800 { font-weight: 800; }
